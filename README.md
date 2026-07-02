@@ -19,3 +19,5 @@ I worked on this project to understand job market trends like salary, hiring com
 
 ## Author
 Aglin beni
+
+![Dashboard](dashboard.png)
