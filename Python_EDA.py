@@ -1,9 +1,8 @@
 import pandas as pd
 
-# Load dataset
 df = pd.read_excel("AI_Career_Navigator_Dataset.xlsx")
 
-print("========== DATASET OVERVIEW ==========\n")
+print("DATASET OVERVIEW \n")
 
 print("Total Jobs:", len(df))
 print("Total Companies:", df["Company"].nunique())
@@ -38,13 +37,10 @@ print(skills.value_counts().head(10))
 
 import matplotlib.pyplot as plt
 
-# Split the skills column into individual skills
 skills = df["Skills"].str.split(", ").explode()
 
-# Count each skill
 top_skills = skills.value_counts().head(10)
 
-# Create bar chart
 plt.figure(figsize=(10,6))
 top_skills.plot(kind="bar")
 
@@ -68,13 +64,13 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-print("\n========== INSIGHTS ==========")
+print("\nINSIGHTS ")
 
-print(f"📍 The city with the highest job openings is {city_jobs.idxmax()} with {city_jobs.max()} jobs.")
+print(f" The city with the highest job openings is {city_jobs.idxmax()} with {city_jobs.max()} jobs.")
 
-print(f"📍 The city with the lowest job openings is {city_jobs.idxmin()} with {city_jobs.min()} jobs.")
+print(f"The city with the lowest job openings is {city_jobs.idxmin()} with {city_jobs.min()} jobs.")
 
-print("📍 This analysis helps identify cities with higher demand for Data Analyst roles.")
+print("This analysis helps identify cities with higher demand for Data Analyst roles.")
 
 company_jobs = df["Company"].value_counts().head(10)
 
@@ -89,11 +85,11 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-print("\n========== COMPANY INSIGHTS ==========")
+print("\nCOMPANY INSIGHTS ")
 
-print(f"🏢 The highest hiring company is {company_jobs.idxmax()} with {company_jobs.max()} job postings.")
+print(f" The highest hiring company is {company_jobs.idxmax()} with {company_jobs.max()} job postings.")
 
-print("🏢 These companies have the highest recruitment activity in the dataset.")
+print("These companies have the highest recruitment activity in the dataset.")
 
 plt.figure(figsize=(10,6))
 
@@ -106,11 +102,11 @@ plt.ylabel("Number of Jobs")
 plt.tight_layout()
 plt.show()
 
-print("\n========== SALARY INSIGHTS ==========")
+print("\nSALARY INSIGHTS")
 
-print(f"💰 Average Salary: {round(df['Salary_LPA'].mean(),2)} LPA")
-print(f"💰 Highest Salary: {df['Salary_LPA'].max()} LPA")
-print(f"💰 Lowest Salary: {df['Salary_LPA'].min()} LPA")
+print(f" Average Salary: {round(df['Salary_LPA'].mean(),2)} LPA")
+print(f" Highest Salary: {df['Salary_LPA'].max()} LPA")
+print(f" Lowest Salary: {df['Salary_LPA'].min()} LPA")
 
 work_mode = df["Work_Mode"].value_counts()
 
@@ -124,7 +120,7 @@ plt.ylabel("")
 
 plt.show()
 
-print("\n========== WORK MODE INSIGHTS ==========")
+print("\nWORK MODE INSIGHTS")
 
 print(work_mode)
 
@@ -145,6 +141,6 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 
 plt.show()
-print("\n========== EXPERIENCE INSIGHTS ==========")
+print("\nEXPERIENCE INSIGHTS")
 
 print(salary_exp)
